@@ -1,0 +1,81 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.login-body{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-contain{
+    width: 30%;
+    height:30%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.login-container-title{
+    text-align: center;
+}
+
+.login-form-container{
+    text-align: center;
+}
+
+.login-label{
+    width: 90%;
+    /* display: block; */
+    margin: auto;
+    margin-top: 20px;
+}
+
+.login-input{
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+/* REGISTER */
+
+.register-body{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-contain{
+    width: 30%;
+    height:50%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.register-container-title{
+    text-align: center;
+}
+
+.register-form-container{
+    text-align: center;
+}
+
+.register-label{
+    width: 90%;
+    /* display: block; */
+    margin: auto;
+    margin-top: 20px;
+}
+
+.register-input{
+    width: 90%;
+    display: block;
+    margin: auto;
+}
