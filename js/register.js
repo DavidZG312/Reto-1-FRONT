@@ -57,7 +57,7 @@ const validacionRegistro = () => {
 }
 
 // Ejemplo implementando el metodo POST:
-async function registrarUsuario(url = 'http://localhost:8080/api/user/new', data = {
+async function registrarUsuario(url = 'http://152.70.223.182:8080/api/user/new', data = {
   email: document.getElementById("email").value.toLowerCase(),
   name: document.getElementById("name").value,
   password: document.getElementById("password").value,
@@ -106,7 +106,7 @@ async function registrarUsuario(url = 'http://localhost:8080/api/user/new', data
 
 function correoExiste() {
   $.ajax({
-    url: `http://localhost:8080/api/user/${document.getElementById("email").value.toLowerCase()}`,
+    url: `http://152.70.223.182:8080/api/user/${document.getElementById("email").value.toLowerCase()}`,
     type: "GET",
     datatype: "JSON",
     success: function (respuesta) {

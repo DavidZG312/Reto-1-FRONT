@@ -1,7 +1,7 @@
 function iniciarSesion() {
   if (document.getElementById("email").value !== '' && document.getElementById("password").value !== '') {
     $.ajax({
-      url: `http://localhost:8080/api/user/${document.getElementById("email").value.toLowerCase()}/${document.getElementById("password").value}`,
+      url: `http://152.70.223.182:8080/api/user/${document.getElementById("email").value.toLowerCase()}/${document.getElementById("password").value}`,
       type: "GET",
       datatype: "JSON",
       success: function (respuesta) {
