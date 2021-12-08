@@ -2,22 +2,29 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+#email, #password, #name, #repeatPassword {
+    width: 100%;
+}
+
 .login-body{
     height: 100vh;
     width: 100%;
-    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .login-contain{
-    width: 30%;
-    height:30%;
     background-color: #fff;
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 10px;
+    height: 350px !important; 
 }
+
+@media screen and (max-width: 575px) {
+    .row-login {
+      padding: 30px;
+    }
+} 
 
 .login-container-title{
     text-align: center;
@@ -29,7 +36,6 @@
 
 .login-label{
     width: 90%;
-    /* display: block; */
     margin: auto;
     margin-top: 20px;
 }
@@ -41,41 +47,23 @@
 }
 
 /* REGISTER */
-
+ 
 .register-body{
     height: 100vh;
     width: 100%;
-    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .register-contain{
-    width: 30%;
-    height:50%;
     background-color: #fff;
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 10px;
+    height: 450px !important; 
 }
 
-.register-container-title{
-    text-align: center;
-}
-
-.register-form-container{
-    text-align: center;
-}
-
-.register-label{
-    width: 90%;
-    /* display: block; */
-    margin: auto;
-    margin-top: 20px;
-}
-
-.register-input{
-    width: 90%;
-    display: block;
-    margin: auto;
-}
+@media screen and (max-width: 575px) {
+    .row-register {
+      padding: 30px;
+    }
+} 

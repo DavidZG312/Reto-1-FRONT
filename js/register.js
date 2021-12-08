@@ -6,23 +6,59 @@ const validacionRegistro = () => {
   var expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z])+\.)+([a-zA-Z]{2,4})+$/;
   if (email !== '' && name !== '' && password !== '' && repeatPassword !== '') {
     if (expr.test(email)) {
-      if(password === repeatPassword){
+      if (password === repeatPassword) {
         registrarUsuario()
       } else {
-        alert("Las contraseñas no coinciden")
+        Swal.fire({
+          title: `Las contraseñas no coincides`,
+          icon: 'warning',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          showConfirmButton: false,
+          timer: 1500,
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          },
+          color: 'orange',
+        })
       }
     } else {
-      alert("Correo no valido")
+      Swal.fire({
+        title: `Correo no valido`,
+        icon: 'warning',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        showConfirmButton: false,
+        timer: 1500,
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        color: 'orange',
+      })
     }
   } else {
-    alert("Llenar todos los campos")
+    Swal.fire({
+      title: `Diligenciar todos los campos`,
+      icon: 'warning',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      showConfirmButton: false,
+      timer: 1500,
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      color: 'orange',
+    })
   }
 
 }
 
 // Ejemplo implementando el metodo POST:
 async function registrarUsuario(url = 'http://localhost:8080/api/user/new', data = {
-  email: document.getElementById("email").value,
+  email: document.getElementById("email").value.toLowerCase(),
   name: document.getElementById("name").value,
   password: document.getElementById("password").value,
 }) {
@@ -38,31 +74,59 @@ async function registrarUsuario(url = 'http://localhost:8080/api/user/new', data
     });
     if (response.status === 201) {
       // window.location = "index.html"
+      Swal.fire({
+        title: `Usuario creado con exito`,
+        icon: 'success',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        showConfirmButton: false,
+        timer: 1500,
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+        color: '#03a9f4',
+      })
+      setTimeout(() => {
+        window.location = "index.html"
+      }, 1500);
       $("#email").val("");
       $("#name").val("");
       $("#password").val("");
       $("#repeatPassword").val("");
-      alert("¡ Usuario creado con exito !")
+      // alert("¡ Usuario creado con exito !")
     } else {
       alert("El registro fallo")
     }
-    console.log(response)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 
 
 function correoExiste() {
   $.ajax({
-      url: `http://localhost:8080/api/user/${document.getElementById("email").value}`,
-      type: "GET",
-      datatype: "JSON",
-      success: function (respuesta) {
-        if(respuesta){
-          alert("Correo ya existe")
-          $("#email").val("");
-        }
+    url: `http://localhost:8080/api/user/${document.getElementById("email").value.toLowerCase()}`,
+    type: "GET",
+    datatype: "JSON",
+    success: function (respuesta) {
+      if (respuesta) {
+        Swal.fire({
+          title: `¡ Este correo ya existe !`,
+          icon: 'warning',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          showConfirmButton: false,
+          timer: 1500,
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          },
+          color: 'orange',
+        })
+        $("#email").val("");
+      } else {
       }
+    }
   });
 }
